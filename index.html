@@ -164,5 +164,54 @@
       decor.appendChild(span);
     }
   </script>
+  <script>
+  const imageUrls = [
+    'images/20240904_133108.jpg',
+    'images/20241026_111900 (2).jpg',
+    'images/20241026_143401.jpg',
+    'images/20250111_154836.jpg',
+    'images/20250225_142004.jpg',
+    'images/Screenshot_20250111_160948_Snapchat.jpg',
+    'images/Snapchat-1025364027.jpg',
+    'images/Snapchat-1320041698.jpg',
+    'images/Snapchat-1623197946.jpg',
+    'images/Snapchat-2087398004.jpg',
+    'images/Snapchat-268627788.jpg',
+    'images/Snapchat-941711075 (2).jpg'
+  ];
+
+  function createFloatingImage(url) {
+    const img = document.createElement("img");
+    img.src = url;
+    img.style.position = "fixed";
+    img.style.width = "60px";
+    img.style.top = Math.random() * 100 + "vh";
+    img.style.left = Math.random() * 100 + "vw";
+    img.style.zIndex = "0";
+    img.style.opacity = 0.7;
+    img.style.borderRadius = "50%";
+    img.style.animation = `floatUp ${5 + Math.random() * 5}s linear infinite`;
+    document.body.appendChild(img);
+  }
+
+  imageUrls.forEach((url, i) => {
+    setTimeout(() => {
+      setInterval(() => createFloatingImage(url), 4000);
+    }, i * 800);
+  });
+</script>
+
+<style>
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
 </body>
 </html>
