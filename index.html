@@ -1,61 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #ffccff);
+      color: #4d004d;
+      text-align: center;
+      padding: 2rem;
+    }
+    .quiz-container {
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
+    }
+    h1 {
+      color: #d63384;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+    }
+    button {
+      padding: 0.5rem 1.5rem;
+      border: none;
+      background-color: #ff66b2;
+      color: white;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #e60073;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 0.5rem;
+    }
+    #videoLink {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #006600;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, My Love!</h1>
+  <div class="quiz-container">
+    <div class="question">
+      <p>1) When did we first talk?</p>
+      <select id="q1">
+        <option value="">--Select--</option>
+        <option value="A">Picnic</option>
+        <option value="B">Chemistry lab</option>
+        <option value="C">Physics lab</option>
+        <option value="D">In class</option>
+      </select>
+    </div>
+    <div class="question">
+      <p>2) When did you tell me that you love me?</p>
+      <select id="q2">
+        <option value="">--Select--</option>
+        <option value="A">20 July</option>
+        <option value="B">20 April</option>
+        <option value="C">20 December</option>
+        <option value="D">20 August</option>
+      </select>
+    </div>
+    <div class="question">
+      <p>3) What is the name of the song which I wrote for you?</p>
+      <select id="q3">
+        <option value="">--Select--</option>
+        <option value="A">I Found Love</option>
+        <option value="B">When I first saw you</option>
+        <option value="C">Most Beautiful Girl</option>
+        <option value="D">I Love You</option>
+      </select>
+    </div>
+    <div class="question">
+      <p>4) When did I first get you a flower?</p>
+      <select id="q4">
+        <option value="">--Select--</option>
+        <option value="A">19 March 2025</option>
+        <option value="B">18 March 2025</option>
+        <option value="C">17 March 2025</option>
+        <option value="D">17 March 2024</option>
+      </select>
+    </div>
+    <div class="question">
+      <p>5) What do you expect the video to be like?</p>
+      <input type="text" id="q5" placeholder="Write your guess here...">
+    </div>
+    <button onclick="checkAnswers()">Submit</button>
+    <div id="videoLink"></div>
+  </div>
 
+  <script>
+    function checkAnswers() {
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+      const q4 = document.getElementById('q4').value;
+      const correctAnswers = ['A', 'D', 'B', 'B'];
 
+      if ([q1, q2, q3, q4].includes('')) {
+        alert('Please answer all the multiple-choice questions!');
+        return;
+      }
 
-  
-  
-  Happy Birthday My Love
-  
-
-
-  Happy Birthday, My Love!
-  
-    
-      1) When did we first talk?
-      
-        --Select--
-        Picnic
-        Chemistry lab
-        Physics lab
-        In class
-      
-    
-    
-      2) When did you tell me that you love me?
-      
-        --Select--
-        20 July
-        20 April
-        20 December
-        20 August
-      
-    
-    
-      3) What is the name of the song which I wrote for you?
-      
-        --Select--
-        I Found Love
-        When I first saw you
-        Most Beautiful Girl
-        I Love You
-      
-    
-    
-      4) When did I first get you a flower?
-      
-        --Select--
-        19 March 2025
-        18 March 2025
-        17 March 2025
-        17 March 2024
-      
-    
-    
-      5) What do you expect the video to be like?
-      
-    
-    Submit
-    
-  
-  
-
-
+      if (q1 === correctAnswers[0] && q2 === correctAnswers[1] && q3 === correctAnswers[2] && q4 === correctAnswers[3]) {
+        document.getElementById('videoLink').innerHTML =
+          'You got everything right! Here’s your surprise: <br><a href="YOUR_VIDEO_LINK_HERE" target="_blank">Click here to watch the video</a>';
+      } else {
+        document.getElementById('videoLink').innerText = 'Oops! Some answers are incorrect. Try again, my love!';
+      }
+    }
+  </script>
+</body>
+</html>
