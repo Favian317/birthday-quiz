@@ -184,5 +184,21 @@
       decor.appendChild(span);
     }
   </script>
+  <audio id="bg-music" autoplay loop>
+    <button onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">Play/Pause Music</button>
+
+<script>
+  const music = document.getElementById("bg-music");
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
+  <source src="music/SpotiDownloader.com - HAPPY BIRTHDAY MY LOVE - Friz Love.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 </body>
 </html>
