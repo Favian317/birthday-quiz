@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday My Love</title>
   <style>
+    .glow-img {
+  animation: pulseGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+  transition: transform 0.3s ease;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+  }
+}
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #ffe6f0, #ffccff);
@@ -180,17 +200,45 @@
     'images/Snapchat-941711075 (2).jpg'
   ];
 
-  imageUrls.forEach(url => {
+  const quiz = document.querySelector('.quiz-container');
+  const quizRect = quiz.getBoundingClientRect();
+  const padding = 30;
+  const imageSize = 60;
+
+  function placeImage(url, left, top) {
     const img = document.createElement('img');
     img.src = url;
-    img.style.position = 'absolute';
-    img.style.width = '70px';
-    img.style.borderRadius = '20px';
-    img.style.zIndex = '0';
-    img.style.opacity = '0.85';
-    img.style.top = Math.random() * (window.innerHeight - 100) + 'px';
-    img.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+    img.className = 'glow-img';
+    img.style.position = 'fixed';
+    img.style.width = imageSize + 'px';
+    img.style.borderRadius = '10px';
+    img.style.opacity = '0.9';
+    img.style.zIndex = '2';
+    img.style.left = left + 'px';
+    img.style.top = top + 'px';
     document.body.appendChild(img);
+  }
+
+  const centerX = quizRect.left + quizRect.width / 2;
+  const centerY = quizRect.top + quizRect.height / 2;
+
+  imageUrls.forEach((url, index) => {
+    const side = index % 4;
+    const offset = Math.floor(index / 4);
+    switch (side) {
+      case 0: // Left side
+        placeImage(url, quizRect.left - imageSize - padding, quizRect.top + offset * (imageSize + padding));
+        break;
+      case 1: // Right side
+        placeImage(url, quizRect.right + padding, quizRect.top + offset * (imageSize + padding));
+        break;
+      case 2: // Top side
+        placeImage(url, quizRect.left + offset * (imageSize + 10), quizRect.top - imageSize - padding);
+        break;
+      case 3: // Bottom side
+        placeImage(url, quizRect.left + offset * (imageSize + 10), quizRect.bottom + padding);
+        break;
+    }
   });
 </script>
 </body>
