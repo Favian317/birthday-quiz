@@ -189,6 +189,19 @@
       console.error("Error submitting form:", error);
     });
   }
+
+  // Floating emoji decor
+  const decor = document.getElementById('decor');
+  const emojis = ['💖', '🎂', '💘', '💝', '🎉', '❤️'];
+  for (let i = 0; i < 50; i++) {
+    const span = document.createElement('span');
+    span.className = 'emoji';
+    span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    span.style.left = Math.random() * 100 + 'vw';
+    span.style.animationDelay = Math.random() * 10 + 's';
+    span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+    decor.appendChild(span);
+  }
 </script>
 
  <audio id="bg-music" autoplay muted loop>
