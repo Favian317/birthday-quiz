@@ -184,22 +184,29 @@
       decor.appendChild(span);
     }
   </script>
- <audio id="bg-music" autoplay loop>
+ <audio id="bg-music" autoplay muted loop>
   <source src="music/SpotiDownloader.com - HAPPY BIRTHDAY MY LOVE - Friz Love.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
-<button onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; z-index: 999; padding: 10px 15px; border-radius: 10px; background-color: #ff66b2; color: white; border: none;">Play/Pause Music</button>
-
 <script>
   const music = document.getElementById("bg-music");
-  function toggleMusic() {
-    if (music.paused) {
-      music.play();
-    } else {
-      music.pause();
-    }
-  }
+
+  // Try to play as soon as user interacts
+  window.addEventListener('DOMContentLoaded', () => {
+    // Wait a moment and then try to unmute and play
+    setTimeout(() => {
+      music.muted = false;
+      music.play().catch((e) => {
+        console.log("Autoplay was blocked. Waiting for user interaction.");
+        // If autoplay is blocked, wait for user click
+        document.body.addEventListener('click', () => {
+          music.muted = false;
+          music.play();
+        }, { once: true });
+      });
+    }, 500); // slight delay just in case
+  });
 </script>
 </body>
 </html>
