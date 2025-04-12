@@ -2,47 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday My Love</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, My Love!</title>
   <style>
-    .glow-img {
-  animation: pulseGlow 3s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
-  transition: transform 0.3s ease;
-}
-
-@keyframes pulseGlow {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.9);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
-  }
-}
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #ffe6f0, #ffccff);
       color: #4d004d;
       text-align: center;
       padding: 2rem;
-      position: relative;
-      overflow-x: hidden;
     }
     .quiz-container {
       background: #fff0f5;
       border-radius: 20px;
       padding: 2rem;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
       box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-      position: relative;
-      z-index: 1;
     }
     h1 {
       color: #d63384;
@@ -50,12 +26,20 @@
     }
     .question {
       margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
     }
     button {
-      padding: 0.5rem 1.5rem;
-      border: none;
+      padding: 0.6rem 1.5rem;
       background-color: #ff66b2;
       color: white;
+      border: none;
       border-radius: 10px;
       font-size: 1rem;
       cursor: pointer;
@@ -63,12 +47,6 @@
     }
     button:hover {
       background-color: #e60073;
-    }
-    input[type="text"], select {
-      padding: 0.5rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-top: 0.5rem;
     }
     #videoLink {
       margin-top: 2rem;
@@ -96,14 +74,14 @@
       50% { opacity: 1; }
       100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
     }
+
   </style>
 </head>
 <body>
-  <div class="decor" id="decor"></div>
   <h1>🎂 Happy Birthday, My Love! 💖</h1>
   <div class="quiz-container">
     <div class="question">
-      <p>1) When did we first talk?</p>
+      <p>1) Where was the first time we both talked?</p>
       <select id="q1">
         <option value="">--Select--</option>
         <option value="A">Picnic</option>
@@ -112,19 +90,65 @@
         <option value="D">In class</option>
       </select>
     </div>
+
     <div class="question">
-      <p>2) When did you tell me that you love me?</p>
+      <p>2) What was the solution in chemistry lab that I was thinking to taste?</p>
       <select id="q2">
         <option value="">--Select--</option>
-        <option value="A">20 July</option>
-        <option value="B">20 April</option>
-        <option value="C">20 December</option>
-        <option value="D">20 August</option>
+        <option value="A">Acid</option>
+        <option value="B">Alcohol</option>
+        <option value="C">KMno4</option>
+        <option value="D">Base</option>
       </select>
     </div>
+
     <div class="question">
-      <p>3) What is the name of the song which I wrote for you?</p>
+      <p>3) How much money did you used to ask me for notes?</p>
       <select id="q3">
+        <option value="">--Select--</option>
+        <option value="A">100000000</option>
+        <option value="B">500000000</option>
+        <option value="C">900000000</option>
+        <option value="D">999999999</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>4) After school what would we do?</p>
+      <select id="q4">
+        <option value="">--Select--</option>
+        <option value="A">Go to eat sev puri</option>
+        <option value="B">Go to meet principal</option>
+        <option value="C">Go to drink orange juice</option>
+        <option value="D">Walk together to the bus stop</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>5) What day did you send me your snap on the swing?</p>
+      <select id="q5">
+        <option value="">--Select--</option>
+        <option value="A">11th April</option>
+        <option value="B">16th April</option>
+        <option value="C">11th August</option>
+        <option value="D">16th August</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>6) When did you tell me that you love me?</p>
+      <select id="q6">
+        <option value="">--Select--</option>
+        <option value="A">20th August</option>
+        <option value="B">16th April</option>
+        <option value="C">20th December</option>
+        <option value="D">16th August</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>7) What is the name of the song which I wrote for you?</p>
+      <select id="q7">
         <option value="">--Select--</option>
         <option value="A">I Found Love</option>
         <option value="B">When I first saw you</option>
@@ -132,9 +156,10 @@
         <option value="D">I Love You</option>
       </select>
     </div>
+
     <div class="question">
-      <p>4) When did I first get you a flower?</p>
-      <select id="q4">
+      <p>8) When did I first get you a flower?</p>
+      <select id="q8">
         <option value="">--Select--</option>
         <option value="A">19 March 2025</option>
         <option value="B">18 March 2025</option>
@@ -142,53 +167,58 @@
         <option value="D">17 March 2024</option>
       </select>
     </div>
-    <div class="question">
-      <p>5) What do you expect the video to be like?</p>
-      <input type="text" id="q5" placeholder="Write your guess here...">
-    </div>
-    <button onclick="checkAnswers()">Submit</button>
+
+    <form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSfZMiL_Q3Y9_fU1fZ8nrX8f40ulsFqe7h8SMnvK3AnR99EzcQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+      <div class="question">
+        <p>9) Did I treat you the way you are supposed to be treated (like a queen)?</p>
+        <input type="text" name="entry.624140262" required>
+      </div>
+      <div class="question">
+        <p>10) How can I support you better this year?</p>
+        <input type="text" name="entry.1467556522" required>
+      </div>
+      <div class="question">
+        <p>11) What's your favorite memory from the past year?</p>
+        <input type="text" name="entry.326188823" required>
+      </div>
+      <div class="question">
+        <p>12) Anything you want to say?</p>
+        <input type="text" name="entry.1876751129" required>
+      </div>
+      <button type="submit" onclick="return checkAnswers()">Submit</button>
+    </form>
     <div id="videoLink"></div>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
   </div>
-<script>
-  function checkAnswers() {
-    const q1 = document.getElementById('q1').value;
-    const q2 = document.getElementById('q2').value;
-    const q3 = document.getElementById('q3').value;
-    const q4 = document.getElementById('q4').value;
-    const q5 = document.getElementById('q5').value;
-    const correctAnswers = ['A', 'D', 'B', 'B'];
 
-    if ([q1, q2, q3, q4].includes('')) {
-      alert('Please answer all the multiple-choice questions!');
-      return;
+  <script>
+    function checkAnswers() {
+      const correctAnswers = ['A', 'B', 'A', 'D', 'C', 'D', 'B', 'B'];
+      const selected = [
+        document.getElementById('q1').value,
+        document.getElementById('q2').value,
+        document.getElementById('q3').value,
+        document.getElementById('q4').value,
+        document.getElementById('q5').value,
+        document.getElementById('q6').value,
+        document.getElementById('q7').value,
+        document.getElementById('q8').value
+      ];
+
+      if (selected.includes('')) {
+        alert('Please answer all the multiple-choice questions!');
+        return false;
+      }
+
+      const allCorrect = selected.every((val, i) => val === correctAnswers[i]);
+      if (allCorrect) {
+        document.getElementById('videoLink').innerHTML = 'You got everything right! Here’s your surprise: <br><a href="YOUR_VIDEO_LINK_HERE" target="_blank">Click here to watch the video</a>';
+        return true;
+      } else {
+        document.getElementById('videoLink').innerText = 'Oops! Some answers are incorrect. Try again, my love!';
+        return false;
+      }
     }
-
-    // Save Q5 answer to Google Form
-    sendToGoogleForm(q5);
-
-    if (q1 === correctAnswers[0] && q2 === correctAnswers[1] && q3 === correctAnswers[2] && q4 === correctAnswers[3]) {
-      document.getElementById('videoLink').innerHTML =
-        'You got everything right! Here’s your surprise: <br><a href="YOUR_VIDEO_LINK_HERE" target="_blank">Click here to watch the video</a>';
-    } else {
-      document.getElementById('videoLink').innerText = 'Oops! Some answers are incorrect. Try again, my love!';
-    }
-  }
-
-  function sendToGoogleForm(answer) {
-    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfZMiL_Q3Y9_fU1fZ8nrX8f40ulsFqe7h8SMnvK3AnR99EzcQ/formResponse";
-    const formData = new FormData();
-    formData.append("entry.624140262", answer);
-
-    fetch(formUrl, {
-      method: "POST",
-      mode: "no-cors",
-      body: formData
-    }).then(() => {
-      console.log("Answer submitted to Google Form");
-    }).catch((error) => {
-      console.error("Error submitting form:", error);
-    });
-  }
 
   // Floating emoji decor
   const decor = document.getElementById('decor');
@@ -205,27 +235,38 @@
 </script>
 
  <audio id="bg-music" autoplay muted loop>
+   <button id="music-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background-color: #ffccff; border: none; padding: 10px 15px; border-radius: 12px; font-weight: bold; cursor: pointer;">
+  Pause Music
+</button>
   <source src="music/SpotiDownloader.com - HAPPY BIRTHDAY MY LOVE - Friz Love.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
 <script>
   const music = document.getElementById("bg-music");
+  const toggleBtn = document.getElementById("music-toggle");
 
-  // Try to play as soon as user interacts
   window.addEventListener('DOMContentLoaded', () => {
-    // Wait a moment and then try to unmute and play
     setTimeout(() => {
       music.muted = false;
       music.play().catch((e) => {
         console.log("Autoplay was blocked. Waiting for user interaction.");
-        // If autoplay is blocked, wait for user click
         document.body.addEventListener('click', () => {
           music.muted = false;
           music.play();
         }, { once: true });
       });
-    }, 500); // slight delay just in case
+    }, 500);
+  });
+
+  toggleBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      toggleBtn.textContent = "Pause Music";
+    } else {
+      music.pause();
+      toggleBtn.textContent = "Play Music";
+    }
   });
 </script>
 </body>
