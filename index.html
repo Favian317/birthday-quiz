@@ -58,6 +58,9 @@
       font-weight: bold;
       color: #006600;
     }
+    <button id="giftButton" style="display: none; position: fixed; bottom: 80px; right: 20px; z-index: 9999; background-color: #ffe6f0; border: 2px solid #ff66b2; padding: 10px 15px; border-radius: 12px; font-weight: bold; cursor: pointer;">
+  🎁 Open Your Gift
+</button>
     .decor {
       position: fixed;
       top: 0;
@@ -82,6 +85,20 @@
   </style>
 </head>
 <body>
+  <div id="typewriter" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem;"></div>
+<script>
+  const msg = "Hi Ines... Ready for your special birthday quiz?";
+  let i = 0;
+  function type() {
+    if (i < msg.length) {
+      document.getElementById("typewriter").innerHTML += msg.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
+  }
+  window.onload = type;
+</script>
+
   <div class="decor" id="decor"></div>
   <h1>🎂 Happy Birthday, My Love! 💖</h1>
   <div class="quiz-container">
@@ -231,10 +248,15 @@
     }
 
     // All good
-    document.getElementById('videoLink').innerHTML =
-      'YESSSS!!! You got everything right! Here’s your surprise: <br><a href="YOUR_VIDEO_LINK_HERE" target="_blank">Click here and rotate ur phone horizontally</a>';
+    confetti({
+  particleCount: 150,
+  spread: 70,
+  origin: { y: 0.6 }
+});
+   document.getElementById('giftButton').style.display = 'block';
   }
-
+// Submit the Google Form
+document.getElementById('form').submit();
 
   // Floating emoji decor
   const decor = document.getElementById('decor');
@@ -283,6 +305,13 @@
       toggleBtn.textContent = "Play Music";
     }
   });
+    document.getElementById('giftButton').addEventListener('click', () => {
+  document.getElementById('videoLink').innerHTML = 
+    'YESSSS!!! You got everything right! Here’s your surprise: <br><a href="YOUR_VIDEO_LINK_HERE" target="_blank">Click here and rotate your phone horizontally</a>';
+  document.getElementById('giftButton').style.display = 'none';
+});
+
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>
