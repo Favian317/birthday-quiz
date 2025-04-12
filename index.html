@@ -176,21 +176,21 @@
     <form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSfZMiL_Q3Y9_fU1fZ8nrX8f40ulsFqe7h8SMnvK3AnR99EzcQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
       <div class="question">
         <p>9) Did I treat you the way you are supposed to be treated (like a queen)?</p>
-        <input type="text" name="entry.624140262" required>
+        <input type="text" name="entry.624140262" id="q9" required>
       </div>
       <div class="question">
         <p>10) How can I support you better this year?</p>
-        <input type="text" name="entry.1467556522" required>
+        <input type="text" name="entry.1467556522" id="q10" required>
       </div>
       <div class="question">
         <p>11) What's your favorite memory from the past year?</p>
-        <input type="text" name="entry.326188823" required>
+        <input type="text" name="entry.326188823" id="q11" required>
       </div>
       <div class="question">
         <p>12) Anything you want to say?</p>
-        <input type="text" name="entry.1876751129" required>
+        <input type="text" name="entry.1876751129" id="q12" required>
       </div>
-      <button type="submit" onclick="checkAnswers()">Submit</button>
+      <button type="button" onclick="checkAnswers()">Submit</button>
     </form>
     <div id="videoLink"></div>
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
