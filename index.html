@@ -58,9 +58,6 @@
       font-weight: bold;
       color: #006600;
     }
-    <button id="giftButton" style="display: none; position: fixed; bottom: 80px; right: 20px; z-index: 9999; background-color: #ffe6f0; border: 2px solid #ff66b2; padding: 10px 15px; border-radius: 12px; font-weight: bold; cursor: pointer;">
-  🎁 Open Your Gift
-</button>
     .decor {
       position: fixed;
       top: 0;
@@ -81,6 +78,16 @@
       50% { opacity: 1; }
       100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
     }
+    @keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  40% { transform: scale(0.95); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.heartbeat {
+  animation: heartbeat 1s infinite;
+}
 
   </style>
 </head>
@@ -207,7 +214,15 @@
         <p>12) Anything you want to say?</p>
         <input type="text" name="entry.1876751129" id="q12" required>
       </div>
-      <button type="button" onclick="checkAnswers()">Submit</button>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+  <button type="button" onclick="checkAnswers()">Submit</button>
+  <button id="giftButton" disabled
+    style="background-color: #ffe6f0; border: 2px solid #ff66b2; padding: 10px 15px; border-radius: 12px; font-weight: bold; cursor: not-allowed; transition: transform 0.3s ease;">
+    🔒 Gift Locked
+  </button>
+</div>
+<div id="unlockMessage" style="margin-top: 1rem; font-weight: bold; color: green;"></div>
+
     </form>
     <div id="videoLink"></div>
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -248,13 +263,19 @@
     }
 
     // All good
-    confetti({
+confetti({
   particleCount: 150,
   spread: 70,
   origin: { y: 0.6 }
 });
-   document.getElementById('giftButton').style.display = 'block';
-  }
+
+const giftBtn = document.getElementById('giftButton');
+giftBtn.disabled = false;
+giftBtn.innerHTML = '🎁 Open Your Gift';
+giftBtn.style.cursor = 'pointer';
+giftBtn.classList.add('heartbeat');
+document.getElementById('unlockMessage').innerText = 'The gift is now unlocked sweetheart! Go ahead and open it.';
+
 // Submit the Google Form
 document.getElementById('form').submit();
 
@@ -305,10 +326,15 @@ document.getElementById('form').submit();
       toggleBtn.textContent = "Play Music";
     }
   });
-    document.getElementById('giftButton').addEventListener('click', () => {
+   document.getElementById('giftButton').addEventListener('click', () => {
+  const giftBtn = document.getElementById('giftButton');
+  if (giftBtn.disabled) {
+    alert("You need to answer everything correctly to unlock this gift, idiot!");
+    return;
+  }
   document.getElementById('videoLink').innerHTML = 
     'YESSSS!!! You got everything right! Here’s your surprise: <br><a href="YOUR_VIDEO_LINK_HERE" target="_blank">Click here and rotate your phone horizontally</a>';
-  document.getElementById('giftButton').style.display = 'none';
+  giftBtn.style.display = 'none';
 });
 
   </script>
