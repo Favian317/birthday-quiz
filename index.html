@@ -412,13 +412,14 @@
 
   // Then fade it out once everything is loaded
   window.addEventListener("load", function () {
+  setTimeout(() => {
     loadingScreen.classList.remove("visible");
     loadingScreen.classList.add("hidden");
 
     setTimeout(() => {
       loadingScreen.style.display = "none";
-    }, 1000); // Match transition duration
-  });
+    }, 1000); // match transition duration
+  }, 8000); // wait 8 seconds before hiding
 });
 </script>
 </body>
