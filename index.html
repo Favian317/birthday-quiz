@@ -19,10 +19,14 @@
       max-width: 700px;
       margin: 0 auto;
       box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      position: relative;
+      z-index: 2;
     }
     h1 {
       color: #d63384;
       font-size: 2.5rem;
+      z-index: 2;
+      position: relative;
     }
     .question {
       margin-bottom: 1.5rem;
@@ -233,7 +237,16 @@
     span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
     decor.appendChild(span);
   }
+</script>
 
+ <audio id="bg-music" autoplay muted loop>
+  <source src="music/SpotiDownloader.com - HAPPY BIRTHDAY MY LOVE - Friz Love.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button id="music-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background-color: #ffccff; border: none; padding: 10px 15px; border-radius: 12px; font-weight: bold; cursor: pointer;">
+  Pause Music
+</button>
+  <script>
     const music = document.getElementById("bg-music");
   const toggleBtn = document.getElementById("music-toggle");
 
@@ -259,14 +272,6 @@
       toggleBtn.textContent = "Play Music";
     }
   });
-</script>
-
- <audio id="bg-music" autoplay muted loop>
-  <source src="music/SpotiDownloader.com - HAPPY BIRTHDAY MY LOVE - Friz Love.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-<button id="music-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background-color: #ffccff; border: none; padding: 10px 15px; border-radius: 12px; font-weight: bold; cursor: pointer;">
-  Pause Music
-</button>
+  </script>
 </body>
 </html>
