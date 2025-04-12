@@ -92,17 +92,28 @@
 .heartbeat {
   animation: heartbeat 1s infinite;
 }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 #loading-screen {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #ffd6e8; /* Soft pink background */
+  background-color: #ffd6e8;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 9999;
-  transition: opacity 0.8s ease;
+  opacity: 0;
+  animation: fadeIn 1s forwards, fadeOut 1s 7s forwards; /* 1s in, 7s stay, 1s out */
 }
 
 #loading-cake {
@@ -378,12 +389,11 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
   window.addEventListener('load', () => {
-    const loader = document.getElementById('loading-screen');
-    loader.style.opacity = 0;
-    setTimeout(() => {
-      loader.style.display = 'none';
-    }, 800); // Matches the fade-out duration
-  });
+  const loader = document.getElementById('loading-screen');
+  setTimeout(() => {
+    loader.style.display = 'none';
+  }, 8000); // Fully hide after 8 seconds
+});
 </script>
 </body>
 </html>
