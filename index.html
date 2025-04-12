@@ -104,16 +104,17 @@
 
 #loading-screen {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: #ffd6e8;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   z-index: 9999;
-  opacity: 0;
-  animation: fadeIn 1s forwards, fadeOut 1s 7s forwards; /* 1s in, 7s stay, 1s out */
+  overflow: hidden;
 }
 
 #loading-cake {
@@ -134,7 +135,7 @@
 <body>
   <div id="loading-screen">
   <img src="images/Clipped_image_20250412_192339.png" alt="Birthday Cake" id="loading-cake" />
-  <p id="loading-text">Loading Ines's birthday magic...</p>
+  <p id="loading-text">Loading your surprise...</p>
 </div>
 
   <div id="typewriter" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem;"></div>
