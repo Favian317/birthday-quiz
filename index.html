@@ -401,26 +401,21 @@
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script>
- document.addEventListener("DOMContentLoaded", function () {
-  const loadingScreen = document.getElementById("loading-screen");
-
-  // Ensure it's visible before we animate
-  requestAnimationFrame(() => {
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const loadingScreen = document.getElementById("loading-screen");
     loadingScreen.classList.add("visible");
-  });
 
-  // Then fade it out once everything is loaded
-  window.addEventListener("load", function () {
-  setTimeout(() => {
-    loadingScreen.classList.remove("visible");
-    loadingScreen.classList.add("hidden");
-
+    // Fade out after 8 seconds
     setTimeout(() => {
-      loadingScreen.style.display = "none";
-    }, 1000); // match transition duration
-  }, 8000); // wait 8 seconds before hiding
-});
+      loadingScreen.classList.remove("visible");
+      loadingScreen.classList.add("hidden");
+
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+      }, 1000); // Match the CSS transition duration
+    }, 8000); // Keep visible for 8 seconds
+  });
 </script>
 </body>
 </html>
