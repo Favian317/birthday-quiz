@@ -402,23 +402,22 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
   const loadingScreen = document.getElementById("loading-screen");
 
-  // Trigger fade-in
-  setTimeout(() => {
+  // Ensure it's visible before we animate
+  requestAnimationFrame(() => {
     loadingScreen.classList.add("visible");
-  }, 100); // Slight delay to ensure CSS applies
+  });
 
-  // Trigger fade-out on window load
+  // Then fade it out once everything is loaded
   window.addEventListener("load", function () {
     loadingScreen.classList.remove("visible");
     loadingScreen.classList.add("hidden");
 
-    // Optional: fully remove from view after fade out
     setTimeout(() => {
       loadingScreen.style.display = "none";
-    }, 1000); // Match the CSS transition time
+    }, 1000); // Match transition duration
   });
 });
 </script>
