@@ -115,7 +115,20 @@
   align-items: center;
   z-index: 9999;
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
 }
+    
+    #loading-screen.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
 
 #loading-cake {
   width: 200px;
@@ -389,11 +402,24 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
-  window.addEventListener('load', () => {
-  const loader = document.getElementById('loading-screen');
+  document.addEventListener("DOMContentLoaded", function () {
+  const loadingScreen = document.getElementById("loading-screen");
+
+  // Trigger fade-in
   setTimeout(() => {
-    loader.style.display = 'none';
-  }, 8000); // Fully hide after 8 seconds
+    loadingScreen.classList.add("visible");
+  }, 100); // Slight delay to ensure CSS applies
+
+  // Trigger fade-out on window load
+  window.addEventListener("load", function () {
+    loadingScreen.classList.remove("visible");
+    loadingScreen.classList.add("hidden");
+
+    // Optional: fully remove from view after fade out
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+    }, 1000); // Match the CSS transition time
+  });
 });
 </script>
 </body>
