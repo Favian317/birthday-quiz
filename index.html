@@ -78,8 +78,8 @@
       opacity: 2;
     }
     @keyframes float {
-      0% { transform: translateY(150vh) rotate(0); opacity: 0; }
-      50% { opacity: 1; }
+      0% { transform: translateY(0vh) rotate(0); opacity: 0; }
+      30% { opacity: 1; }
       100% { transform: translateY(-150vh) rotate(360deg); opacity: 0; }
     }
     @keyframes heartbeat {
@@ -173,6 +173,8 @@
     span.className = 'emoji';
     span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
     span.style.left = Math.random() * 100 + 'vw';
+    span.style.bottom = '0';
+    span.style.top = 'auto';
     span.style.animationDelay = Math.random() * 10 + 's';
     span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
     decor.appendChild(span);
